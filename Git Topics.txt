@@ -113,7 +113,7 @@ Distributed  Version Control System
 =============================
 	Eg: Git, Mercurial, Darcs, Baazar,etc,....
 
-=>Developers will not only get the latest version but also the compile history of the files.
+=> Developers will not only get the latest version but also the compile history of the files.
 => Push will not only happen with latest snapshot of the files rather they will push the old files also.
 => If the main server goes off, Still there is a local repository which would have maintained the copy of the repository where the entire code is avilable(history of version).
 => If the remote repository is down, then developer can do change in the local repository  and when the main repository is up the code can be pushed to remote repository from local repository.
@@ -282,8 +282,11 @@ Important operation associated with git
 
 > git init
 	- normally  a folder will be created in the developers works place and inside the folder the source code would be place.
+
 	- normally  this is the first command which we execute to set up the git for operation like clone,push,pull..
+
 	- This command internally creates one folder called .git
+
 	- .git is used by git software to identify the folder which should participate  in pushing to "local" and " remote" repositores.
 
 		syntax: git init
@@ -315,10 +318,49 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 	
+	- git status normally will give outputs in the following ways
+	a. untracked files => it means the files are present still working area and these files can't be commited to "local repository" nor to "remote repository"
+	b. tracked files => it means the files are moved from working area to stage area so these files can be commited to "local repository " and to "remote repository".
+	c. modified file(red color) => it means the files are present still in working area and these files can be staged or it can also be restored back to the normal phase.
+	
+
+ 
+
+4.git add
+==========
+
+	- To send the code from workspace to stagearea we use the following command
+		a. syntax: git add <file-name>
+
+	- If we want to push all the the files workspace to stage area, we use the following command.
+		b.syntax: git add .
+			: git add --a
+
+	- It is also possible to unstage the files from stagged area to workplace using the following command
+	systax: git rm --cached<file-name>
+
+	- To restore the old file we use the following command
+	- syntax : git restore<file-name>
 
 
-4.git add 
-=========
+	- The files which are ready for commit should be in stage area, to perfrom commit operation we use the folowing command. 
+	- systax: git commit -m<some message>
+
+	eg. git commit -m "First Commit" 
+		- This file commit all the files prsent in stage area
+	eg. git commit -m "second commit" filename 
+		- This  will commit only that file which you want to commit
+
+
+
+
+
+
+
+
+
+
+
 
 
 
