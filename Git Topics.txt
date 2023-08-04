@@ -1,0 +1,329 @@
+Git topics
+==========
+1. Introduction
+2. what is VersionControl System(VCS) and types of VCS
+	1. Local Version Control System
+	2. Centrelized Version Control System
+	3. Distributed  Version Control System(github, bitbucket,...)
+3. Git Software installation
+4. Git project Architecture
+5. Git commands or Operation
+	1. git help	 8. git commit	  15. git fetch	 22. git show
+	2. git init	 9. git log	  16. git stash	 23. git revert
+	3. git config   10. git clone	  17. git merge
+	4. git add      11. git push	  18. git rebase
+	5. git status   12. git pull	  19. git diff
+	6. git rm       13. git branch	  20. git revert
+	7. git restore  14. git checkout  21. git mv 
+
+6.Git commands execution
+	a. using commandline(gitbash,gitcmd,gitgui)
+	b. using IDX's like Eclicps/STS(SpringToolSuite)/Intellij
+
+7. Github account creation
+	a. public repository creation
+	b. private repository creation
+
+8. Git folder structures
+
+9. Git Branching Strategy
+	1. developer branch
+	2. master branch
+	3. release branch
+	4. hofix branch
+	5. fork branch
+
+10. Project Review Process(PR process), Code Reviews, Code Merge.
+
+11. Realtime Problem with git and how to fix them.
+
+12.FAQ
+
+
+
+Introduction
+===========
+=> Git is a popular Version Control System (VCS).
+=> It was created by Linus Torvalds in 2005 and it is maintained by Junio Hamano
+
+
+	Git is used for
+		a. Tracking code Changes
+		b. Tracking who made the changes like history of files
+		c. Coding Collobarations
+
+
+what is VersionControl System(VCS) and types of VCS ?
+=============================================
+=> It is a system that records changes made to the file or set of files over the time , so that we call recall the specific version later.
+	i.e, for every source code changes in a file a new version will be created
+		eg: JDK1V,JDK1.1V.........
+			Spring1.X, Spring2.X,.....
+
+
+=> Types of VersionControlSoftware(VCS)
+	There are 3 types of VCS
+		a. Local Version Control System
+		b. Centralized Version Control
+		c. Distributed Version Control System
+
+=> Local Version Control System
+	=> It is used to maintain the file version and retreive the based on the specific Version.
+			refer:LocalVersionControlSystem.Png
+
+=> To overcome the drawback of LocalVersionControl System we have " Centeralized Version COntrol System"
+
+Centeralized Version Control
+========================
+
+=> Developers can collobare the code in one repository and do the change
+		eg of Centeraized Version software: SVN, Subversion, Perforce ....
+
+=> Centeralized Version server will have single server that contains all the version files
+=> For many years this has been the standard version Control system
+=> More no of developers would connect to CVS to Checkout the files
+
+	Checkout  - Taking the code from repository  to local machine.
+	push - Sending the code from local machine to repository(CVS)
+
+
+=> Advantage
+	1. Every One Knows to certain degree what everyone else on the project is doing
+	2. Administration will have full control over which can do what and it is easier to manage.
+
+
+=> Drawback
+	1. Single point of Failure(SPF) Would represent the centralized System.
+	2. If the server goes down due to network , during that hour nobody can collaborate at all or save changes.
+	3. If the hard disk of the centralized system gets corrupted and proper backup haven't been taken then there is every possibility of loss of data.
+
+
+Note: In LVCS ad in CVCS getting up the complete history of changes is not possible.
+	  It is Possible to get only the latest version, but not the entire history.
+		eg:SVN
+			push will not happen w.r.t version rather push will happen only with the latest change.
+
+Version Control
+file - 1.0V
+file - 1.1V
+file - 1.2V
+
+
+Distributed  Version Control System
+=============================
+	Eg: Git, Mercurial, Darcs, Baazar,etc,....
+
+=>Developers will not only get the latest version but also the compile history of the files.
+=> Push will not only happen with latest snapshot of the files rather they will push the old files also.
+=> If the main server goes off, Still there is a local repository which would have maintained the copy of the repository where the entire code is avilable(history of version).
+=> If the remote repository is down, then developer can do change in the local repository  and when the main repository is up the code can be pushed to remote repository from local repository.
+
+
+
+Git Software installation
+====================
+
+There are 2 types of Git Software
+	1. Git Server
+	2. Git Client
+
+GitServer
+========
+	1. It is a repository.
+	2. It is the largest host of source code in the world.
+	3. It is used to store/ Manage the source code of the project. 
+	4. Some of the Git Server tools are : Github, BitBucket,GitLab.....
+
+			refer: GitServerArchitecture.png
+
+Where should we provide  url, Username and Password?
+	To type these details we need git client.
+
+GitClient
+=======
+
+1. Download a git software from the following link:( According to your System (Windows,Linux,Mac)
+		https://git-scm.com/download
+
+	1. It is a tool which is used to connect to our gitserver
+	2. if we install git client(git s/w) we get following tools for free
+		a. git bash - linux command are required 
+		b. git gui  - Graphical user interface where all the action will be done through clicks.   
+		c. git cmd  - Command line tools where developer should provide url, username,password.
+
+Note:
+	gitclient is a .exe file which can installed with just few clicks
+	git - Client tool
+	github - Server software where repositores will be maintained
+	
+Git Architecture
+================
+	
+	refer: gitarchitecure.png
+There are 3 regions
+	a. workplace - It is a place where devlopers maintain there source code
+	b. stage area - Once the code is ready, then it will be added to stage area(inducation to git software)
+	c. local repository  - Once the code is in stage area, we commit it to the local repository  with some standard message, from local we "push" to main repository by providing url, username and password.
+
+
+git commands (Case Sensetive)
+============
+
+1. git version
+2. git help
+3. git config
+4. git init
+5. git clone
+6. git add
+7. git status
+8. git rm
+9. git restore
+10. git commit
+11. git log
+12. git show
+13. git show
+14. git push
+15. git pull
+16. git checkout
+17. git stash
+
+
+Note: git merge, git rebase
+
+1. git version
+==============
+	This command is used to check the version of git.g
+
+	Syntax : git -v 
+		 git --version
+		 git version
+
+
+Abhishek@Abhishek MINGW64 ~ (master)
+$ git version
+git version 2.39.1.windows.1
+
+Abhishek@Abhishek MINGW64 ~ (master)
+$ git -v
+git version 2.39.1.windows.1
+
+
+2. git help
+===========
+	If we want to see the list of commands then we can use git help
+	
+	Syntax : git help
+
+Abhishek@Abhishek MINGW64 ~ (master)
+$ git help
+
+Abhishek@Abhishek MINGW64 ~ (master)
+$ git help clone
+
+
+3. git config
+=============
+	It is used when the git software is used for the first time.
+	The command will set the devleoper identity like name , email....
+	This configuration information will be used by git software for every push operation encounterd.
+
+> git config --list 
+	This command is used to provide the list of configuration.
+
+Abhishek@Abhishek MINGW64 ~ (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=abhishekdhole
+user.email=abhishekdhole45@gmail.com
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+gui.wmstate=normal
+
+
+Note: git config --list --show-origin 
+	- disply the location of git configuration holded by git software.
+
+Abhishek@Abhishek MINGW64 ~ (master)
+$ git config --list --show-origin
+file:C:/Program Files/Git/etc/gitconfig diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig filter.lfs.process=git-lfs filter-process
+
+	a. to set the username and email
+		> git config --global user.name "Name"
+		> git config --global user.email "Email"
+	b. confirmation
+		> git config --list
+
+Note: global 
+	- It indicates the user can work with git commands from different drives of computer.
+
+
+Important operation associated with git
+=======================================
+
+> git init
+	- normally  a folder will be created in the developers works place and inside the folder the source code would be place.
+	- normally  this is the first command which we execute to set up the git for operation like clone,push,pull..
+	- This command internally creates one folder called .git
+	- .git is used by git software to identify the folder which should participate  in pushing to "local" and " remote" repositores.
+
+		syntax: git init
+
+Note: To change the directory use the following command cd..
+      To check in which directory we are  use the following command pwd.. 
+
+
+> git status
+	- This commands is used to check the status of the working directory
+	- git status
+
+Abhishek@Abhishek MINGW64 ~/Downloads/Tech (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        CentralizedVersionControlSystem.png
+        DistributedVersionControlSystem.png
+        Git Topics.txt
+        GitArchitecture.png
+        GitOne.png
+        GitServer Architecture .png
+        LocalVersionControlSystem.png
+        SVN Vs Git.png
+
+nothing added to commit but untracked files present (use "git add" to track)
+	
+
+
+4.git add 
+=========
+
+
+
+
+
+
+
+
